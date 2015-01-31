@@ -18,6 +18,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * The DriveTrain subsystem incorporates the sensors and actuators attached to
  * the robots chassis. These include four drive motors, a left and right encoder
  * and a gyro.
+ * 
+ * 
+ * Need to smooth out the movements
  */
 public class DriveTrain extends Subsystem {
 	private SpeedController front_left_motor, back_left_motor,
@@ -98,7 +101,8 @@ public class DriveTrain extends Subsystem {
 	 * @param joy The ps3 style joystick to use to drive tank style.
 	 */
 	public void drive(Joystick joy) {
-		drive(-joy.getY(), -joy.getAxis(AxisType.kThrottle));
+		//drive(-joy.getRawAxis(0), -joy.getAxis(AxisType.kThrottle));
+		drive(-joy.getX() + joy.getRawAxis(0) + joy.getY(), -(joy.getRawAxis(0) +joy.getX()) - joy.getY());
 	}
 
 	/**

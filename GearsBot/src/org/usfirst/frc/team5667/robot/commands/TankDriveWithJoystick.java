@@ -29,15 +29,14 @@ public class TankDriveWithJoystick extends Command {
         
         System.out.print("\nX - | ");
         for (int i=0; i<(int)(Robot.oi.getJoystick().getX()*10);i++)
-    	System.out.print('#');
         	System.out.print('#');
         
         System.out.print("\nY + | ");
-        for (int i=0; i<(int)(Robot.oi.getJoystick().getThrottle()*-10);i++)
+        for (int i=0; i<(int)(Robot.oi.getJoystick().getRawAxis(0)*10);i++)
         	System.out.print('#');
         
         System.out.print("\nY - | ");
-        for (int i=0; i<(int)(Robot.oi.getJoystick().getThrottle()*10);i++)
+        for (int i=0; i<(int)(Robot.oi.getJoystick().getRawAxis(0)*-10);i++)
         	System.out.print('#');
         
         System.out.print("\nZ + | ");
